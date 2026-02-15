@@ -133,11 +133,12 @@ Create the DB and user
     CREATE USER api_user WITH PASSWORD 'securepassword';
     GRANT ALL PRIVILEGES ON DATABASE challenge_db TO api_user;
 
-\###Create a `.env` file 
+###Create a `.env` file 
 
-    DATABASE_URL=postgres://user:password@localhost:5432/titanbay
+    DATABASE_URL=postgres://api_user:securepassword@localhost:5432/challenge_db
 
-\###Ensure bun is installed
+
+###Ensure bun is installed
 
     ### MacOS & Linux
     curl -fsSL https://bun.com/install | bash
@@ -151,13 +152,13 @@ then from inside the main directory run
 ### Create DB Tables
 
 ```bash
-bun run src/db/createTables.ts
+bun create_db
 ```
 
-### Seed Database
+### Seed Database with test data
 
 ```bash
-bun run src/db/seed.ts
+bun seed
 ```
 
 Safe to run multiple times -- existing records are reused.
@@ -165,7 +166,7 @@ Safe to run multiple times -- existing records are reused.
 ### Delete DB
 
 ```bash
-bun run src/db/destroy.ts
+bun destroy
 ```
 
 This script prompts for confirmation before deleting all rows.
@@ -181,15 +182,6 @@ bun dev
 Server runs on: <http://localhost:3000>
 
 * * *
-
-## Testing
-
-This project uses integration tests to verify:
-
--   End-to-end request handling
--   Database interactions
--   Validation and error handling
--   Resource relationships
 
 ### Run Tests
 
@@ -214,7 +206,6 @@ The tests run against a real database and clean up after themselves.
 -   Thin API layer: Minimal business logic in handlers; validation + persistence are explicit
 -   DTO → Repository pattern: Clear separation of concerns
 -   Database constraints are authoritative, but errors are surfaced cleanly at the API layer
--   No authentication: Out of scope per challenge
 -   No migrations: Tables are created directly for speed and simplicity
 
 ## Further improvements
