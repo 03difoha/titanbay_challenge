@@ -1,0 +1,25 @@
+{
+  "name": "titanbay_challenge",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/server.ts",
+    "create_db": "bun run src/db/createTables.ts",
+    "seed": "bun run src/db/seed.ts",
+    "destroy": "bun run src/db/destroy.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^25.2.3",
+    "vitest": "^4.0.18"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.45.1",
+    "hono": "^4.11.9",
+    "pg": "^8.18.0",
+    "zod": "^4.3.6"
+  }
+}
