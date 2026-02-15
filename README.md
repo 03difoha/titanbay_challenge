@@ -133,12 +133,12 @@ Create the DB and user
     CREATE USER api_user WITH PASSWORD 'securepassword';
     GRANT ALL PRIVILEGES ON DATABASE challenge_db TO api_user;
 
-###Create a `.env` file 
+### Create a `.env` file 
 
     DATABASE_URL=postgres://api_user:securepassword@localhost:5432/challenge_db
 
 
-###Ensure bun is installed
+### Ensure bun is installed
 
     ### MacOS & Linux
     curl -fsSL https://bun.com/install | bash
