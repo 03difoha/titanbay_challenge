@@ -216,7 +216,7 @@ If I had more time I would like to extend the tests to test every type of error 
 
 ## AI Usage
 
-AI tools (ChatGPT) were used extensively to:
+AI tools (ChatGPT) were used to:
 
 -   Accelerate boilerplate creation
 -   Discuss architectural tradeoffs
